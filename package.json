@@ -21,7 +21,6 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^16.43.2",
-    "aws-sdk": "^2.1046.0",
     "boilerplate-readme-template": "^1.0.1",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
@@ -43,6 +42,14 @@
     "util": "^0.11.1"
   },
   "bin": {
-    "harbormaster": "./index.js"
-  }
+    "harbormaster": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harbormaster-AI/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Harbormaster-AI/cli/issues"
+  },
+  "homepage": "https://github.com/Harbormaster-AI/cli#readme"
 }

@@ -23,7 +23,7 @@ const Table   			= require('cli-table')
 var program = require('commander');
 
 program
-.version('0.2.13', '-v, --version')
+.version('2.1.0', '-v, --version')
 .option('-q, --quiet [arg]', 'true or [false] to minimize output to only results.', 'false');
 
 program
@@ -83,41 +83,32 @@ program
 ////////////////////////////////////////////////////
 // model related options
 ////////////////////////////////////////////////////
-program
+/*program
 .command('model_types_supported')
 .description('List of supported model types.')
 .action(function(scope, options){
 	console.log( "Supported Model Types:" );
-	console.log( "-- Formatted Text Files - JSON(.json), YAML(.yaml, .yml)" );
-	console.log( "-- Model Files - XMI(.xmi), UML(.uml), Eclipse Modeling Framework(.eore or .emf)" );
-	console.log( "-- Database Schema - SQL Script(.sql)" );
-	console.log( "-- Java Archive Files - JAR(.jar), EAR(.ear)" );
-	console.log( "-- Java Source Files - GIT(.git)" );
+	console.log( "-- YAML(.yaml, .yml)" );
 	console.log( "" );
-	console.log( "#" );
-	console.log( "# NOTE: If using SQL script, make sure the file name is prefixed with the table name." );
-	console.log( "# For example, classic-model.sql references a CREATE TABLE statement on the name classic." );
-	console.log( "#" );              
 }).on('--help', function() {
     console.log('');
     console.log('Example to display all supported model types:');
     console.log('');
     console.log('  $ harbormaster model_types_supported');
-});
+});*/
 
 program
-.command('model_list [scope]')
-.description('List available models. Scope: public, private, community. Empty returns all.')
+.command('list_models [scope]')
+.description('List available models. Scope: All, Harbormaster, Mine.')
 .option('-o, --output [value]', '[json] or pretty for pretty print')
-.option('-f, --filter [value]', 'emf, sqlscript, uml, xmi, pojo, yaml, or json')
 .action(function(scope, options){
-	harbormaster.listModels(scope, options.filter)
+	harbormaster.listModels()
 		.then(function(data) {
 			var models = JSON.parse(data.result);
 			if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 				const tbl 		= new Table({
-											head: ['name', 'description', 'file', 'contributor', 'type', 'scope'], 
-											colWidths: [20, 30, 25, 25, 15, 15]
+											head: ['name', 'description', 'file', 'contributor'],
+											colWidths: [20, 30, 25, 25]
 										});
 				var saveParams;
 				for(var index = 0; index < models.length; index++ ) {
@@ -127,9 +118,7 @@ program
 									saveParams.name,
 									saveParams.description, 
 									models[index].fileName, 
-									models[index].contributor,
-									models[index].modelType,
-									models[index].scopeType
+									models[index].contributor
 								]);
 				}
 				console.log(tbl.toString());
@@ -143,20 +132,16 @@ program
     console.log('');
     console.log('Example to display all public models using pretty print:');
     console.log('');
-    console.log('  $ harbormaster model_list public --output pretty');
+    console.log('  $ harbormaster model_list --output pretty');
     console.log('');
-    console.log('Example to display all your public and private models as json [default]:');
+    console.log('Example to display all Harbormaster and your models as json [default]:');
     console.log('');
-    console.log('  $ harbormaster model_list');
-    console.log('Example to display all community sql script models as json :');
-    console.log('');
-    console.log('  $ harbormaster model_list community -f sqlscript');    
 });
 
 
-program
-.command('model_validate <filepath> [javaRootPackageName]')
-.description('Validate a model for possible usage later on. javaRootPackageName: required for JAR/EAR files')
+/*program
+.command('validate_model <filepath>')
+.description('Validate a model for possible usage later on.)
 .action(function(filepath){
 	harbormaster.validateModel(filepath)
 		.then(function(data) {
@@ -164,44 +149,35 @@ program
 		}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Loads and validates a model uaing a supported model parser.');
+    console.log('Loads and validates a model file content.');
     console.log('');
-    console.log('Example to validate a UML XMI file:');
+    console.log('Example to validate a YAML model file:');
     console.log('');
-    console.log('  $ harbormaster model_validate ./models/myuml.xmi');
+    console.log('  $ harbormaster model_validate ./models/mymodel.yml');
     console.log('');
     
-});
+});*/
 
-program
-.command('model_publish <model_file> <name> [javaRootPackageName] [primaryKeyPattern] [scope]')
-.description('Publish a model file or use a YAML with appropriate directives. name: unique name, scope: public or private[default]. javaRootPackageNames: comma delim list of packages to consider, for Git Repos and JAR/WAR/EAR files only, primaryKeyPattern: POJO pk patttern, defaults to _pojoName_Id' )
-.action(function(model_file, name, javaRootPackageName, primaryKeyPattern, scope){
-    if ( primaryKeyPattern == undefined ||  primaryKeyPattern.length == 0 )
-		primaryKeyPattern = "_pojoName_Id";
+/*program
+.command('publish_model <model_file> <name> <description>')
+.description('Publish a model file. name: unique name, description: )
+.action(function(model_file, name, description){
 	var array;
-	if ( javaRootPackageName != undefined && javaRootPackageName.length > 0 )
-	    array = javaRootPackageName.split(",")
-	harbormaster.registerModel(model_file, name, scope, array, primaryKeyPattern)
+	harbormaster.registerModel(model_file, name, description)
 		.then(function(data) {
 			console.log("model publishing complete");
 		}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Example to publish a model as private:');
+    console.log('Example to publish a model :');
     console.log('');
-    console.log('  $ harbormaster model_publish ./save-my-model.ecore myProject');
+    console.log('  $ harbormaster model_publish ./my-model.yaml mySystem "this is my first model" ');
     console.log('');
-    console.log('Example to publish a model as public:');
-    console.log('');
-    console.log('  $ harbormaster model_publish ./save-my-model.ecore myProject public');
-    console.log('');
-    
-});
+});*/
 
-program
-.command('model_download <name> <output_file_path>')
-.description('Download a model file.  Only owned or public models can be downloaded.' )
+/*program
+.command('download_model <name> <output_file_path>')
+.description('Download a model file you are the owner of. name: name saved as, output_file_path: where to save it to' )
 .action(function(name, output_file_path){
 	harbormaster.downloadModel(name, output_file_path)
 		.then(function(data){
@@ -213,9 +189,9 @@ program
     console.log('');
     console.log('  $ harbormaster model_download myModel ./tmp/archive/mymodel.xmi');
     
-});
+});*/
 
-program
+/*program
 .command('model_promote <name>')
 .description('Promote an owned model from private scope to public.')
 .action(async function(name){
@@ -232,9 +208,9 @@ program
     console.log('Example to promote a model referenced by name myModel:');
     console.log('');
     console.log('  $ harbormaster model_promote myModel');    
-});
+});*/
 
-program
+/*program
 .command('model_demote <name>')
 .description('Demote an owned model from public scope to private.')
 .action(async function(name){
@@ -249,11 +225,11 @@ program
     console.log('Example to demote a model referenced by name myModel:');
     console.log('');
     console.log('  $ harbormaster model_demote myModel');    
-});
+});*/
 
-program
-.command('model_delete <name>')
-.description('Delete a model.  Can only delete an owned private model.')
+/*program
+.command('delete_model <name>')
+.description('Delete a model.  Can only delete a model you own. name: names saved as when created.')
 .action(async function(name){
 	var confirm = await inquirer.confirmation(program.quiet);		// ask for confirmation;
 	if ( confirm.query == true )
@@ -263,40 +239,40 @@ program
 			}).catch(err => console.log(err));				
 }).on('--help', function() {
     console.log('');
-    console.log('Example to delete a model referenced by name myModel:');
+    console.log('Example to delete a model:');
     console.log('');
     console.log('  $ harbormaster model_delete myModel');    
-});
+});*/
 
 ////////////////////////////////////////////////////
 // tech stack related options
 ////////////////////////////////////////////////////
     	
 program
-.command('stack_list [scope]')
-.description('List available tech stacks : Scope: public, private, community. Default returns all of yours.')
+.command('list_blueprints [hint]')
+.description('List available blueprints: hint: used to filter')
 .option('-o, --output [type]', '[json] or pretty for pretty print')
-.option('-f, --filter [value]', 'serverless, webapp, restfulapi, mobile')
-.action(function(scope, options, filter){
-	harbormaster.listTechStacks(scope, options.filter)
+.action(function(hint, options){
+	harbormaster.listBlueprints(hint)
 	.then(function(data) {
 		var pkgs = JSON.parse(data.result);
 		if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
 			const tbl 		= new Table({
-										head: [ 'name','version', 'contributor', 'scope', 'type', 'status'],
-										colWidths: [35, 5, 30, 15, 15, 15]
+										head: [ 'name','version', 'description'],
+										colWidths: [35, 20, 150]
 									});
 			var saveParams;
 			for(var index = 0; index < pkgs.length; index++ ) {
 				saveParams = JSON.parse(pkgs[index].saveParams);
 				tbl.push( 	
 							[
-								saveParams.name, 
+								saveParams.name,
 								pkgs[index].version,
-								pkgs[index].contributor,
-								pkgs[index].scope,
-								pkgs[index].productLine,
-								pkgs[index].status
+								saveParams.description,
+								//pkgs[index].contributor,
+								//pkgs[index].scope,
+							//	pkgs[index].productLine,
+							//	pkgs[index].status
 							] );
 			}
 			console.log(tbl.toString());
@@ -307,21 +283,20 @@ program
 	});
 }).on('--help', function() {
     console.log('');
-    console.log('Example to display all your public tech stacks using pretty print:');
+    console.log('Example to display all blueprints:');
     console.log('');
-    console.log('  $ harbormaster stack_list private --output pretty');
+    console.log('  $ harbormaster list_blueprints');
     console.log('');
-    console.log('Example to display all your serverless type tech stacks as json:');
+    console.log('Example to display all blueprints that contain the word "spring" in its name or metadata');
     console.log('');
-    console.log('  $ harbormaster stack_list -f serverless');
-    
+    console.log('  $ harbormaster list_blueprints spring');
 });
 
 program
-.command('stack_options <name>')
-.description('Available stack application options, modifiable to allow customization of a generated app.')
+.command('blueprint_input_options')
+.description('Available user input options, modifiable to allow customization of a generated app.')
 .action(function(name){
-	harbormaster.stackOptions(name)
+	harbormaster.blueprintOptions(name)
 		.then(function(data){
 			if ( program.quiet == 'true' )
 				console.log(data.result);
@@ -337,8 +312,8 @@ program
     console.log('');    
 });
 
-program
-.command('stack_validate <filepath>')
+/*program
+.command('validate_blueprint <filepath>')
 .description('Validate a tech stack for usage later on.')
 .action(function(filepath){
 	harbormaster.validateTechStack(filepath)
@@ -355,9 +330,9 @@ program
     console.log("  $ harbormaster stack_validate './samples/techstacks/AWS_Lambda_RDS_Modified.zip'");
     console.log('');
     
-});
+});*/
 
-program
+/*program
 .command('stack_publish <yaml_file> [scope]')
 .description('Publish a stack using YAML directives. Scope: public or private [default].')
 .action(function(yaml_file, scope){
@@ -373,9 +348,9 @@ program
     console.log('  $ harbormaster stack_publish ./yamls/save-my-techstack.yml public');
     console.log('');
     
-});
+});*/
 
-program
+/*program
 .command('stack_download <name> <output_file_path>')
 .description('Download a tech stack as a ZIP file.  Only owned or public stacks can be downloaded.' )
 .action(function(name, output_file_path){
@@ -390,10 +365,10 @@ program
     console.log('');
     console.log('  $ harbormaster stack_download myStack ./tmp/archive/mystack.zip');
     
-});
+});*/
 
 
-program
+/*program
 .command('stack_promote <name>')
 .description('Promote an owned tech stack from private scope to public.')
 .action(async function(name){
@@ -410,10 +385,10 @@ program
     console.log('Example to promote a tech stack referenced by name myStack:');
     console.log('');
     console.log('  $ harbormaster stack_promote myStack');    
-});
+});*/
 
 
-program
+/*program
 .command('stack_demote <name>')
 .description('Demote an owned tech stack from public scope to private.')
 .action(async function(name){
@@ -430,9 +405,9 @@ program
     console.log('Example to promote a tech stack referenced by name myStack:');
     console.log('');
     console.log('  $ harbormaster stack_promote myStack');    
-});
+});*/
 
-program
+/*program
 .command('stack_delete <name>')
 .description('Delete a tech stack.  Can only delete an owned private tech stack.')
 .action(async function(name){
@@ -448,13 +423,13 @@ program
     console.log('Example to delete a tech stack referenced by name myStack:');
     console.log('');
     console.log('  $ harbormaster stack_delete myStack');    
-});
+});*/
 
 ////////////////////////////////////////////////////
 // resource related options
 ////////////////////////////////////////////////////
 
-program
+/*program
 .command('resource_list [scope]')
 .description('List available resources. Scope: public, private, community. Empty returns all.')
 .option('-o, --output [value]', '[json] or pretty for pretty print')
@@ -500,14 +475,14 @@ program
     console.log('Example to display all community Dockerfile resources as json :');
     console.log('');
     console.log('  $ harbormaster resource_list community -t DOCKEFILE');    
-});
+});*/
 
-program
+/*program
 .command('resource_publish <resource_file> <unique_name> <type> [scope]')
 //.command('resource_publish <resource_file> <unique_name> <type> [cost] [scope]')
 .description('Publish a resource file. type: DOCKERFILE, CI_CONFIG, TERRAFORM, GENERIC; scope: public or private[default].' )
-.action(function(resource_file, unique_name, type, /*cost,*/ scope){
-	harbormaster.registerResource(resource_file, unique_name, type, 0.0/*cost*/, scope)
+.action(function(resource_file, unique_name, type, cost, scope){
+	harbormaster.registerResource(resource_file, unique_name, type, 0.0, scope)
 		.then(function(data) {
 			console.log(data);
 		}).catch(err => console.log(err));
@@ -522,9 +497,9 @@ program
     console.log('  $ harbormaster resource_publish ./some_path/config.yml myFirstCircleCIConfigYAML CI_CONFIG public 0.0');
     console.log('');
     
-});
+});*/
 
-program
+/*program
 .command('resource_download <name> <output_file_path>')
 .description('Download a resource file.  Only owned or public models can be downloaded.' )
 .action(function(resource_id, output_file_path){
@@ -538,9 +513,9 @@ program
     console.log('');
     console.log('  $ harbormaster resource_download myResource ./tmp/archive/Dockerfile');
     
-});
+});*/
 
-program
+/*program
 .command('resource_promote <name>')
 .description('Promote an owned resource from private scope to public.')
 .action(async function(name){
@@ -555,9 +530,9 @@ program
     console.log('Example to promote a resource referenced by name myResource:');
     console.log('');
     console.log('  $ harbormaster resource_promote myResource');    
-});
+});*/
 
-program
+/*program
 .command('resource_demote <name>')
 .description('Demote an owned resource from public scope to private.')
 .action(async function(name){
@@ -572,9 +547,9 @@ program
     console.log('Example to demote a resource referenced by name myResource:');
     console.log('');
     console.log('  $ harbormaster model_resource myResource');    
-});
+});*/
 
-program
+/*program
 .command('resource_delete <name>')
 .description('Delete a resource using its name or id.  Can only delete an owned private resource.')
 .action(async function(name){
@@ -589,26 +564,26 @@ program
     console.log('Example to delete a resource referenced by name myResource:');
     console.log('');
     console.log('  $ harbormaster resource_delete my_resource_name');    
-});
+});*/
 
 ////////////////////////////////////////////////////
-// project related options
+// system related options
 ////////////////////////////////////////////////////
 program
-.command('project_generate <yaml_file>')
-.description('Generates a project using the directives of a Project-as-Code YAML file.')
-.option('-x, --extended [value]', 'Show extended generation results.  Helpful for debugging. true/false default:false')
-.option('-g, --gitFile [value]', 'Git settings in YAML file, overrides appOptionsFile setting in the generation YAML file')
-.option('-o, --optionsFile [value]', 'Project options in JSON file, overrides gitParams setting in the generation YAML file')
-.option('-m, --modelIdentifier [value]', 'Either a model file or the id of a previously used/registered model, overrides modelId setting in the generation YAML file')
-.action(function(yaml_file, options){
+.command('generate_system <yaml_file>')
+.description('Generates a system using the directives of a System-as-Code YAML file.')
+//.option('-x, --extended [value]', 'Show extended generation results.  Helpful for debugging. true/false default:false')
+//.option('-g, --gitFile [value]', 'Git settings in YAML file, overrides appOptionsFile setting in the generation YAML file')
+//.option('-o, --optionsFile [value]', 'System options in JSON file, overrides gitParams setting in the generation YAML file')
+//.option('-m, --modelIdentifier [value]', 'Either a model file or the id of a previously used/registered model, overrides modelId setting in the generation YAML file')
+.action(function(yaml_file/*, options*/){
 
 	var gitFile = options.gitFile == undefined ? null : options.gitFile; 
 	var optionsFile = options.optionsFile == undefined ? null : options.optionsFile;
 	var modelIdentifier = options.modelIdentifier == undefined ? null : options.modelIdentifier;
 	var extendedResults = options.extended == undefined ? "false" : options.extended;
 	
-	harbormaster.generateProject(yaml_file, gitFile, optionsFile, modelIdentifier)
+	harbormaster.generateSystem(yaml_file, gitFile, optionsFile, modelIdentifier)
 		.then(function(data){
 			
 			if ( extendedResults === "true" )
@@ -624,109 +599,104 @@ program
 }).on('--help', function() {
     console.log('');
     console.log('');
-    console.log('Example to generate an project using the directives of a YAML file:');
+    console.log('Example to generate an system using the directives of a YAML file:');
     console.log('');
-    console.log('  $ harbormaster project_generate ./sample.yamls/generproject.yml');
-    console.log('');
-    console.log('');
-    console.log('Example to generate an project using the directives of a YAML file while directly assigning the Git and app options files, and a model file');
-    console.log('');
-    console.log('  $ harbormaster project_generate ./sample.yamls/generate.project.yml -g ./samples/git/test.git.yml -o ./samples/options/remote/Angular7MongoDB.options.json -m samples/model/reference_management.xmi');
+    console.log('  $ harbormaster system_generate ./sample.yamls/genersystem.yml');
     console.log('');
 });
 
-program
-.command('project_save <yaml_file> <project_name>')
-.description('Saves a project as a Project-as-Code YAML file.')
-.action(function(yaml_file, project_name){
-	harbormaster.saveProject(yaml_file, project_name)
+/*program
+.command('save_system <yaml_file> <system_name>')
+.description('Saves a system as a System-as-Code YAML file.')
+.action(function(yaml_file, system_name){
+	harbormaster.saveSystem(yaml_file, system_name)
 		.then(function(data){
 			console.log(data);
 	}).catch(err => console.log('err'));
 }).on('--help', function() {
     console.log('');
     console.log('');
-    console.log('Example to save an project via a Project-as-Code YAML file:');
+    console.log('Example to save an system via a System-as-Code YAML file:');
     console.log('');
-    console.log('  $ harbormaster project_save ./sample.yamls/trading.system.project.as.code.yml');
+    console.log('  $ harbormaster system_save ./sample.yamls/trading.system.system.as.code.yml');
     console.log('');
     console.log('');
-});
+});*/
 
-program
-.command('project_download <name> <output_file_path>')
-.description('Download a project.  Only owned or public projects can be downloaded.' )
+/*program
+.command('system_download <name> <output_file_path>')
+.description('Download a system' )
 .action(function(name, output_file_path){
 console.log('function deprecated');
 
-	harbormaster.downloadProject(name, output_file_path)
+	harbormaster.downloadSystem(name, output_file_path)
 		.then(function(data){
 			console.log(data);
 	}).catch(err => console.log(err));
 
 }).on('--help', function() {
     console.log('');
-    console.log('Example to download the project referred to by name myProject:');
+    console.log('Example to download the system referred to by name mySystem:');
     console.log('');
-    console.log('  $ harbormaster project_project_load myProject ./tmp/archive/myapp.zip');
+    console.log('  $ harbormaster system_system_load mySystem ./tmp/archive/myapp.zip');
     
-});
+});*/
 
 program
-.command('project_delete <name>')
-.description('Delete a previously created project.  Can only delete an owned private project.')
+.command('delete_system <name>')
+.description('Delete a previously created system.')
 .action(async function(name){
-	harbormaster.deleteProject(name)
+	harbormaster.deleteSystem(name)
 		.then(function(data){
 			console.log(data);
 	}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Example to delete a project:');
+    console.log('Example to delete a system:');
     console.log('');
-    console.log('  $ harbormaster project_delete myProject');    
+    console.log('  $ harbormaster system_delete myFirstSystem');
 });
 
-program
-.command('project_promote <name>')
-.description('Promote an owned project from private scope to public.')
+/*program
+.command('system_promote <name>')
+.description('Promote an owned system from private scope to public.')
 .action(async function(name){
-	harbormaster.promoteProject(name)
+	harbormaster.promoteSystem(name)
 		.then(function(data){
 			console.log(data);
 	}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Promote an owned project from private scope to public.');
+    console.log('Promote an owned system from private scope to public.');
     console.log('');
-    console.log('Example to promote the project referenced name myProject:');
+    console.log('Example to promote the system referenced name mySystem:');
     console.log('');
-    console.log('  $ harbormaster project__promote myProject');    
-});
+    console.log('  $ harbormaster system__promote mySystem');    
+});*/
 
-program
-.command('project_demote <name>')
-.description('Demote an owned project from public scope to private.')
+/*program
+.command('system_demote <name>')
+.description('Demote an owned system from public scope to private.')
 .action(async function(name){
-	harbormaster.demoteProject(name)
+	harbormaster.demoteSystem(name)
 		.then(function(data){
 			console.log(data);
 	}).catch(err => console.log(err));
 }).on('--help', function() {
     console.log('');
-    console.log('Demote an owned project from public scope to private.');
+    console.log('Demote an owned system from public scope to private.');
     console.log('');
-    console.log('Example to demote the project referenced by name myProject:');
+    console.log('Example to demote the system referenced by name mySystem:');
     console.log('');
-    console.log('  $ harbormaster proproject__demote myProject');    
-});
+    console.log('  $ harbormaster system_demote mySystem');
+});*/
 
 program
-.command('project_list [scope]')
-.description('List previously generated project that have been published. Scope: public, private, community. Empty returns all.')
+.command('list_systems')
+.description('List previously created system.')
 .option('-o, --output [type]', '[json] or pretty for pretty print')
-.action(function(scope, options){
-	harbormaster.listProject(scope)
+.action(function(options){
+	harbormaster.listSystem()
 	.then(function(data) {
 		var archives = JSON.parse(data.result);
 		if ( options.output == constants.PRETTY_PRINT_OUTPUT) {
@@ -758,22 +728,10 @@ program
 	})
 }).on('--help', function() {
     console.log('');
-    console.log('Example to display all community archived projects using pretty print:');
+    console.log('Example to display all systems using pretty print:');
     console.log('');
-    console.log('  $ harbormaster project_list public --output pretty');
+    console.log('  $ harbormaster system_list --output pretty');
     console.log('');
-    console.log('Example to display all your public archived projects as json [default]:');
-    console.log('');
-    console.log('  $ harbormaster project_list public');
-    console.log('');
-    console.log('Example to display all your projects using pretty print:');
-    console.log('');
-    console.log('  $ harbormaster project_list -o pretty');
-    console.log('');
-    console.log('Example to display all community projects using pretty print:');
-    console.log('');
-    console.log('  $ harbormaster project_list community -o pretty');
-    
 });
 
 
