@@ -1,25 +1,25 @@
 #!/usr/bin/env node
 process.env["NODE_CONFIG_DIR"] = __dirname + "/config/";
 
-const user				= require('./lib/user');
-const modelHandler		= require('./lib/modelhandler');
-const techStackHandler	= require('./lib/techstackhandler');
-const resourceHandler	= require('./lib/resourcehandler');
-const archiveHandler	= require('./lib/archivehandler');
-const requestHandler	= require('./lib/requesthandler');
-const generateHandler	= require('./lib/generatehandler');
-const projectHandler	= require('./lib/projecthandler');
-const constants 		= require("./lib/constants");
-const Status 			= require("./lib/status");
-const status			= new Status();
+const user				    = require('./lib/user');
+const modelHandler		    = require('./lib/modelhandler');
+const blueprintHandler	= require('./lib/blueprinthandler');
+const resourceHandler	    = require('./lib/resourcehandler');
+const archiveHandler	    = require('./lib/archivehandler');
+const requestHandler	    = require('./lib/requesthandler');
+const generateHandler	    = require('./lib/generatehandler');
+const systemHandler	        = require('./lib/systemhandler');
+const constants 		    = require("./lib/constants");
+const Status 			    = require("./lib/status");
+const status			    = new Status();
 
 self = module.exports =  {
 
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
 	// Handles the authentication of the user,
 	// the user to provide their unique token, assigned
 	// within their profile during registration
-	////////////////////////////////////////////////////		
+	// -------------------------------------------------		
 	async authenticate (inputToken, hostUrl)  {
 
 		return new Promise(async function(resolve, reject) {
@@ -62,9 +62,9 @@ self = module.exports =  {
 		});
 	},
 
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
 	// Model Related Functions
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
 
 	userInfo : () => {	
 		return new Promise(function(resolve, reject) {
@@ -75,19 +75,19 @@ self = module.exports =  {
 		});
 	},
 
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
 	// Model Related Functions
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
 
-	listModels : (scope, filter) => {	
+	listModels : (filter) => {
 		return new Promise(function(resolve, reject) {
-			modelHandler.list(scope, filter)
+			modelHandler.list(filter)
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
 		});
 	},
-
+/*
 	validateModel : (file, javaRootPackageName) => {	
 		return new Promise(function(resolve,reject) {
 			modelHandler.validate(file, javaRootPackageName)
@@ -147,93 +147,93 @@ self = module.exports =  {
 		});
 		
 	},
-	
+*/
 
-	////////////////////////////////////////////////////
-	// Tech Stack Related Functions
-	////////////////////////////////////////////////////
+	// -------------------------------------------------
+	// Blueprint Related Functions
+	// -------------------------------------------------
 	
-	listTechStacks  : (scope, filter) => {	
+	listBlueprints  : (filter) => {	
 		
 		return new Promise(function(resolve, reject) {
-			techStackHandler.list(scope, filter)
+			blueprintHandler.list(filter)
 				.then(function(result) {
 					resolve(result);
 			}).catch(err => reject(err));
 		});
 	},
-	
-	validateTechStack : (file) => {	
+/*
+	validateBlueprint : (file) => {	
 		return new Promise(function(resolve, reject) {
-			techStackHandler.validate(file)
+			blueprintHandler.validate(file)
 				.then(function(result) {
 					resolve(result);
 			}).catch(err => reject(err));
 		});
 	},
-	
-	registerTechStack : (yamlFile, scope) => {	
+
+	registerBlueprint : (yamlFile, scope) => {	
 		return new Promise(function(resolve, reject) {
 			if ( yamlFile == null )
 				reject( status.error(null, "Invalid YAML file provided." ) );
 			else {
-				techStackHandler.register(yamlFile, scope == null ? constants.PRIVATE : scope)
+				blueprintHandler.register(yamlFile, scope == null ? constants.PRIVATE : scope)
 				 .then(function(result) {
 						resolve( result );
 				}).catch(err => reject(err) );
 			}
 		});
 	},
-	
-	stackOptions : (stack_name_or_id) => {
+*/
+	blueprintOptions : (stack_name_or_id) => {
 		return new Promise(function(resolve, reject) {
-			techStackHandler.options(stack_name_or_id)
+			blueprintHandler.options(stack_name_or_id)
+				.then(function(result) {
+					resolve( result );
+			}).catch(err => reject(err));
+		});
+	},
+/*
+	downloadBlueprint : (stack_name_or_id, output_file_path) => {
+		return new Promise(function(resolve, reject) {
+			blueprintHandler.downloadBlueprint( stack_name_or_id, output_file_path )
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
 		});
 	},
 	
-	downloadStack : (stack_name_or_id, output_file_path) => {
+	async deleteBlueprint (stack_name_or_id) {
 		return new Promise(function(resolve, reject) {
-			techStackHandler.downloadStack( stack_name_or_id, output_file_path )
+			blueprintHandler.deleteBlueprint(stack_name_or_id)
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
 		});
 	},
 	
-	async deleteStack (stack_name_or_id) {
+	promoteBlueprint (stack_name_or_id) {
 		return new Promise(function(resolve, reject) {
-			techStackHandler.deleteStack(stack_name_or_id)
-				.then(function(result) {
-					resolve( result );
-			}).catch(err => reject(err));
-		});
-	},
-	
-	promoteStack (stack_name_or_id) {
-		return new Promise(function(resolve, reject) {
-			techStackHandler.promoteStack(stack_name_or_id)
+			blueprintHandler.promoteBlueprint(stack_name_or_id)
 				.then(function(result) {
 					resolve( result );
 				}).catch(err => reject(err));
 		});
 	},
 
-	demoteStack (stack_name_or_id) {
+	demoteBlueprint (stack_name_or_id) {
 		return new Promise(function(resolve, reject) {
-			techStackHandler.demoteStack(stack_name_or_id)
+			blueprintHandler.demoteBlueprint(stack_name_or_id)
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
 		});
 	},
-
-	////////////////////////////////////////////////////
+*/
+	// -------------------------------------------------
 	// Resource Related Functions
-	////////////////////////////////////////////////////
-
+	// -------------------------------------------------
+/*
 	listResources : (scope, resourceType) => {	
 		return new Promise(function(resolve, reject) {
 			resourceHandler.list(scope, resourceType)
@@ -296,41 +296,41 @@ self = module.exports =  {
 		
 	},
 	
-
-	////////////////////////////////////////////////////
-	// Project Related Functions
-	////////////////////////////////////////////////////
+*/
+	// -------------------------------------------------
+	// System Related Functions
+	// -------------------------------------------------
 	
-	generateProject : (yamlFilePath, gitFile, appOptionsFile, modelIdentifier) => {	
+	generateSystem : (yamlFilePath, gitFile, appOptionsFile, modelIdentifier) => {	
 		return new Promise(function(resolve, reject) {
-			generateHandler.generateProject(yamlFilePath, gitFile, appOptionsFile, modelIdentifier)
+			generateHandler.generateSystem(yamlFilePath, gitFile, appOptionsFile, modelIdentifier)
 				.then(function(result) {
 					resolve( result );
 				}).catch(err => reject(err));
 		});
 	},
-
-	saveProject : (yamlFilePath, name) => {
+/*
+	saveSystem : (yamlFilePath, name) => {
 		return new Promise(function(resolve,reject) {
-			projectHandler.saveProject(yamlFilePath, name)
+			systemHandler.saveSystem(yamlFilePath, name)
 				.then(function(result) {
 					resolve( result );
 				}).catch(err => reject(err));
 		});
 	},
-
-    listProject : (scope) => {
+*/
+    listSystem : () => {
         return new Promise(function(resolve,reject) {
-            projectHandler.listProject(scope)
+            systemHandler.listSystem()
                 .then(function(result) {
                     resolve( result );
                 }).catch(err => reject(err));
         });
     },
-
-	promoteProject (project_id_or_name) {
+/*
+	promoteSystem (project_id_or_name) {
 		return new Promise(function(resolve,reject) {
-			projectHandler.promoteProject(project_id_or_name)
+			systemHandler.promoteSystem(project_id_or_name)
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
@@ -338,45 +338,45 @@ self = module.exports =  {
 
 	},
 
-	demoteProject (project_id_or_name) {
+	demoteSystem (project_id_or_name) {
 		return new Promise(function(resolve,reject) {
-			projectHandler.demoteProject(project_id_or_name)
+			systemHandler.demoteSystem(project_id_or_name)
 				.then(function(result) {
 					resolve( result );
 			}).catch(err => reject(err));
 		});
 
 	},
-
-	////////////////////////////////////////////////////
-	//Archive Related Functions
-	////////////////////////////////////////////////////
+*/
+	// -------------------------------------------------
+	// Archive Related Functions
+	// -------------------------------------------------
 	
-	listApps : (scope) => {
+	listBuilds : (system_id) => {
 		return new Promise(function(resolve, reject) {
-			archiveHandler.listApps(scope)
+			archiveHandler.listBuilds(system_id)
 				.then(function(result) {
 					resolve( result );
 				}).catch(err => reject(err));
 		});
 	},
 	
-	downloadApp : (app_name_or_id, output_file_path) => {
-		archiveHandler.downloadApp(app_name_or_id, output_file_path)
+	downloadBuild : (system_id, build_id, output_file_path) => {
+		archiveHandler.downloadApp(system_id, build_id, output_file_path)
 			.then(function(result) {
 				resolve( result );
 			}).catch(err => reject(err));
 	},
 	
-	deleteApp : (app_name_or_id) => {
+	deleteBuild : (system_id, build_id) => {
 		return new Promise(function(resolve,reject) {
-			archiveHandler.deleteApp(app_name_or_id)
+			archiveHandler.deleteApp(system_id, build_id)
 				.then(function(result) {
 					resolve( result );
 				}).catch(err => reject(err));
 		});
 	},
-	
+/*
 	promoteApp : (app_name_or_id) => {
 		return new Promise(function(resolve,reject) {
 			archiveHandler.promoteApp(app_name_or_id)
@@ -394,6 +394,6 @@ self = module.exports =  {
 				}).catch(err => reject(err));
 		});
 	},
-
+*/
 
 }

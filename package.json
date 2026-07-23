@@ -20,7 +20,6 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^16.43.2",
-    "aws-sdk": "^2.876.0",
     "boilerplate-readme-template": "^1.0.1",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
