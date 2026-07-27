@@ -1,8 +1,8 @@
 {
-  "name": "harbormaster-ai",
-  "version": "0.2.13",
-  "description": "Harbormaster CLI, generate fully functional webapps, serverless or RESTful APIs. Choose from available community tech stacks and models, or optinally contribute your own.",
-  "main": "index.js",
+  "name": "@harbormaster/sdk",
+  "version": "1.0.0",
+  "description": "Generate entire software systems, from code to deployment, choosing from a rich set of technology blueprints and industry domain models..",
+  "main": "hm.js",
   "directories": {
     "lib": "lib"
   },
@@ -26,11 +26,10 @@
     "clear": "^0.1.0",
     "cli-table": "^0.3.11",
     "clui": "^0.3.6",
-    "commander": "^2.20.3",
+    "commander": "^15.0.0",
     "config": "^3.3.6",
     "configstore": "^4.0.0",
     "figlet": "^1.5.2",
-    "harbormaster-ai": "^0.2.13",
     "harbormaster-api": "^0.1.16",
     "inquirer": "^6.5.2",
     "js-yaml": "^3.13.1",
@@ -42,7 +41,7 @@
     "util": "^0.11.1"
   },
   "bin": {
-    "harbormaster": "index.js"
+    "hm": "bin/hm.js"
   },
   "repository": {
     "type": "git",
@@ -51,5 +50,6 @@
   "bugs": {
     "url": "https://github.com/Harbormaster-AI/cli/issues"
   },
-  "homepage": "https://github.com/Harbormaster-AI/cli#readme"
+  "homepage": "https://github.com/Harbormaster-AI/cli#readme",
+  "devDependencies": {}
 }

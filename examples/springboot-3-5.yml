@@ -1,0 +1,127 @@
+# -------------------------------------------------------------
+# Standard System-as-Code file.
+#
+# Pay close attention to parameters that require values unique
+# to you, such as those for Git, Docker, and AWS.
+#
+# To use Git, Docker, and any provider, be sure to have created
+# an account with each.
+#
+# For Git, before generating the project be sure to create the
+# repository.
+# -------------------------------------------------------------
+
+system:
+    name: Core Banking System - v1.90
+    description: Core banking system on Spring Boot 3.5 using MySQL 8
+    blueprint:
+        name:             Django
+          # To see the list of available blueprint on a Harbormaster instance use command:
+        #     harbormaster blueprint list --output pretty
+
+    model:
+        name:             Banking
+          # To see the list of available domain models on a Harbormaster instance use command:
+        #     harbormaster model list --output pretty
+
+
+    # ------------------------------------------------------------
+    # Docker parameters
+    # ------------------------------------------------------------
+
+    docker:
+        inUse:        true
+        name:         docker_test_spring-boot   # arbitrary name
+        username:     tylertravismya
+        password:     69cutlass
+        orgName:      theharbormaster
+        repository:   banking-on-spring-boot-3-5
+        tag:          latest
+        host:         #empty uses docker hub default
+
+    # ------------------------------------------------------------
+    # Git repository parameters
+    # - password is a Git token.  This data is never stored
+    # ------------------------------------------------------------
+
+    git:
+        inUse:          true
+        name:           git_test_spring-boot        # arbitrary name
+        host:           https://github.com
+        owner:          Harbormaster-AI
+        repository:     demo
+        password:        # replace with a GutHub token with the right level of access
+
+
+
+    # ------------------------------------------------------------
+    # Terraform properties
+    # ------------------------------------------------------------
+    terraform:
+        inUse:             true
+        dbUsername:
+        dbPassword:
+        dbEngine:          mysql   # options - mysql, mongo, postgres
+        dbVersion:         # leave blank to apply vendor default
+        dbPort:            3306
+        provider:           aws
+
+    # ------------------------------------------------------------
+    # AWS properties
+    # ------------------------------------------------------------
+    aws:
+        accessKey:
+        secretKey:
+        vpc:
+        region:             us-east-2
+        ec2InstanceType:    t2.medium
+        dbInstanceType:     db.t3.medium
+        amiImageId:
+
+    # ------------------------------------------------------------
+    # K8 properties
+    # ------------------------------------------------------------
+
+    kubernetes:
+        inUse:             true
+        host:
+        hostTarget:        aws
+        serviceType:       LoadBalancer
+
+    # ------------------------------------------------------------
+    # System options influence the generative output and possible
+    # features of the resulting system.  Understand the purpose
+    # and intent of each.
+    # ------------------------------------------------------------
+    options:
+
+        # ------------------------------------------------------------
+        # Application parameters
+        # ------------------------------------------------------------
+
+        application:
+            name:                  banking-event-sourced
+            description:           Banking Restful backend
+            author:                Harbormaster Dev Team
+            email:                 xxxx.xxxxxxxxx@xxxxxxxx.com
+            application logo URL:  ./img/turnstone.biologics.png
+            company name:          Turnstone Biologics
+            version:               0.0.1
+
+        # ------------------------------------------------------------
+        # Spring Boot properties
+        # ------------------------------------------------------------
+
+        spring:
+            server-port:             8011
+            entity-store-type:       mysql                         # options - h2, mysql, postgres, mongodb
+            entity-store-url:        jdbc:mysql://localhost:3306/banking-on-spring-boot
+            database-username:       root
+            database-password:
+            spring-profiles-active:
+
+        # ------------------------------------------------------------
+        # CI/CD parameters
+        # ------------------------------------------------------------
+        cicd:
+            platform: github      # options - codeship, circleci, jfrog.pipelines, jenkins, azure, aws, gitlab, bitbucket, github
