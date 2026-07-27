@@ -1,8 +1,9 @@
 {
   // module configs
   "harbormaster": {
+    "version": "2.1.0",
     "serverConfig": {
-      "host": "http://localhost/service"
+      "host": "http://localhost"
     }
 
   }
