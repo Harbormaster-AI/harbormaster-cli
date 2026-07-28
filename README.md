@@ -1,16 +1,11 @@
-# Harbormaster Command Line Interface
+# System-as-Code Command Line Interface
 
 A Node.js command line interface (CLI) to interact with an instance of the Harbormaster Platform.
 
-This CLI helps you manage models, tech stacks, external resources, and projects to generate, commit, and archive fully functional applications.
+This CLI helps you view industry domain models and certified technology blueprints to create, verify, and deploy fully functioning systems.
 
-Whether creating a new app from scratch, or migrating an existing one, use Harbormaster to bootstrap your next DevOps Project
-
-Follow this [link](https://harbormaster.ai/harbormaster-install/) for instructions on using the CLI
 
 ## Find Us
 
-* [http://harbormaster.ai](http://harbormaster.ai)
-* [On GitHub](https://github.com/Harbormaster-AI)
 
 
