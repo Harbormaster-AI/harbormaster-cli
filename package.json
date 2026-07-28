@@ -1,5 +1,5 @@
 {
-  "name": "@harbormaster/sdk",
+  "name": "@system-as-code/sdk",
   "version": "1.0.0",
   "description": "Generate entire software systems, from code to deployment, choosing from a rich set of technology blueprints and industry domain models..",
   "main": "hm.js",
