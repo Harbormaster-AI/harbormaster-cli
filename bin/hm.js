@@ -3,17 +3,23 @@
 const chalk     		= require('chalk');
 const clear   			= require('clear');
 const figlet   			= require('figlet');
-const harbormaster		= require('harbormaster-api');
-const inquirer			= require('./lib/inquire');
-var constants 			= require("./lib/constants");
-var output 			    = require("./lib/output");
+const harbormaster      = require('@system-as-code/sdk');
+const inquirer			= require('../lib/inquire');
+var constants 			= require("../lib/constants");
+var output 			    = require("../lib/output");
 const Configstore 		= require('configstore');
 const conf 				= new Configstore(constants.HARBORMASTER);
 const Table   			= require('cli-table')
-const { version }       = require('./package.json');
-const { program }       = require('commander');
+const { version }       = require('../package.json');
 const fs                = require("fs");
 const path              = require("path");
+const { Command }       = require('commander');
+
+
+async function execute(argv) {
+
+const program = new Command();
+program.description('\nWelcome!! Familiar with Docker, Kubernetes, or Terraform?\n\nSystem-as-Code extends the concept as a declarative way to generate complete modern systems. Start by browsing the library of verified industry domain models and the catalog of SME authored blueprints');
 
 const example = program
     .command('example')
@@ -50,7 +56,7 @@ example
 
 const config = program
     .command('config')
-    .description('Global configurations');
+    .description('Show and assign global configurations');
 
 config
 .command('set')
@@ -88,7 +94,7 @@ config
 
         console.log();console.log();
         console.log( "_____________________________________________");
-        console.log( "Configuration Settings")
+        console.log( "Global configuration settings")
         console.log();console.log();
         output.outputField( "platform url", conf.get("endpoint") );
         output.outputField( "output", conf.get("output") );
@@ -102,7 +108,7 @@ config
 
 program
 .command('version')
-.description('The version of this instance of the Harbormaster CLI.')
+.description('The version of this instance of this CLI to System-as-Code platform instance.')
 .action(function() {
     console.log(version);
 });
@@ -181,7 +187,7 @@ program
 // ------------------------------------------------
 const model = program
     .command('model')
-    .description('List and discover a domain model to use for System-as-Code.');
+    .description('List and discover a domain model to use for system generation.');
 
 //------------------------------------------
 //  model list with an option hint with
@@ -234,7 +240,7 @@ model
                 })
 			}
 			else if ( format === 'json') {
-                console.log(models);
+                console.log(JSON.stringify(models, null, 2));
 			}
 			else {
                 console.error("Invalid output format. Use 'pretty' or 'json'.");
@@ -454,7 +460,7 @@ blueprint
                 })
 		}
 		else {
-				console.log(blueprints);
+				console.log(JSON.stringify(blueprints, null, 2));
 		}
 	});
 });
@@ -584,7 +590,7 @@ blueprint
 
 const system = program
     .command('system')
-    .description('System operations.');
+    .description('System operations including generation.');
 
 // -------------------------------------------------
 // list of systems
@@ -654,6 +660,10 @@ system
 	//var optionsFile = options.optionsFile == undefined ? null : options.optionsFile;
 	//var modelIdentifier = options.modelIdentifier == undefined ? null : options.modelIdentifier;
 	//var extendedResults = options.extended == undefined ? "false" : options.extended;
+
+    // clear the console/screen
+    console.clear();
+
     new Promise(function(resolve, reject) {
         harbormaster.generateSystem(yaml_file)
             .then(function(data){
@@ -682,62 +692,107 @@ system
     })
 });
 
+
 //------------------------------------------
 // delete system - only available to
 // non-anonymous users
 //------------------------------------------
 
-system
-.command('delete <id>')
-.description('Delete a previously created system.')
-.option('--quiet', 'Suppress output.')
-.action(async function(options, id){
+    system
+        .command('certification <id>')
+        .description('Checks the status of a system certification.')
+        .option('--output <format>', 'Output format (pretty|json).')
+        .option('--quiet', 'Suppress output.')
+        .action(async function(id, options, command){
 
-    if ( harbormaster.authenticated() == false ) {
-        console.log('Feature is not available to anonymous users.')
-        return;
-    }
+            harbormaster.checkSystemCertification(id)
+                .then(function(data){
 
-	var confirm = await inquirer.confirmation(program.quiet);		// ask for confirmation;
-	if ( confirm.query == true ) {
-        harbormaster.deleteSystem(id)
-            .then(function(data){
+                    const quiet     = determineValue( command._optionValues.quiet, 'quiet', false );
+                    const format    = determineValue( command._optionValues.output ?? undefined, 'output', 'json' );
 
-                const quiet     = determineValue( command._optionValues.quiet, 'quiet', false );
+                    if ( quiet === true || quiet === 'true' )
+                        return;
 
-                if ( quiet === true || quiet === 'true' )
-                    return;
+                    const cert = data;
 
-                console.log(data);
-        }).catch(err => console.log(err));
-    }
-});
+                    if ( format == 'pretty' ) {
+                        console.log( '-------------------------------------------------')
+                        console.log( 'System Certification Status')
+                        console.log( '-------------------------------------------------')
+                        console.log();console.log();
+                        output.outputVerification( cert.projectVerification);
+                        for(var index = 0; index < cert.verifications.length; index++ ) {
+                            output.outputVerification(cert.verifications[index]);
+                        }
+                    }
+                    else
+                        console.log(cert);
 
+                }).catch(err => console.log(err));
+        });
+
+//------------------------------------------
+// delete system - only available to
+// non-anonymous users
+//------------------------------------------
+
+    system
+        .command('delete <id>')
+        .description('Delete a previously created system.')
+        .option('--quiet', 'Suppress output.')
+        .action(async function(options, id){
+
+            if ( harbormaster.authenticated() == false ) {
+                console.log('Feature is not available to anonymous users.')
+                return;
+            }
+
+            var confirm = await inquirer.confirmation(program.quiet);		// ask for confirmation;
+            if ( confirm.query == true ) {
+                harbormaster.deleteSystem(id)
+                    .then(function(data){
+
+                        const quiet     = determineValue( command._optionValues.quiet, 'quiet', false );
+
+                        if ( quiet === true || quiet === 'true' )
+                            return;
+
+                        console.log(data);
+                    }).catch(err => console.log(err));
+            }
+        });
+
+program.parse(argv);
+
+}
+
+async function main() {
+    return execute(process.argv);
+}
+
+module.exports = {
+    main,
+    execute
+};
+
+if (require.main === module) {
+    main().catch(console.error);
+}
 // -------------------------------------------------
 // build commands
 // anonymous users need a certification id
 // authenticated users a system id
 // -------------------------------------------------
 
-program.parse(process.argv);
-
-
 // if no args (actually no second arg or more, output the help
 if (!process.argv.slice(2).length) {
-	program.outputHelp();
-}
-
-if (program.quiet == 'false' || program.quiet == undefined) {
-	conf.set( "quiet", false );
-}
-else {
-	// set the global indicator to be quiet about output
-	conf.set( "quiet", true );
+//	program.outputHelp();
 }
 
 
 function getAvailableExamples() {
-    const examplesDir = path.join(__dirname, "examples/");
+    const examplesDir = path.join(__dirname, "../examples/");
 
     return fs.readdirSync(examplesDir)
         .filter(file => file.endsWith(".yml"))
@@ -763,7 +818,7 @@ function determineValue( inputValue, globalKey, defaultValue ) {
 function copyFileHere( filename ) {
     const source = path.join(
         __dirname,
-        "examples",
+        "../examples",
         `${filename}.yml`
     );
 
