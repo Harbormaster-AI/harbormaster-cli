@@ -1,0 +1,970 @@
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,758 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,759 - Created '20' parsers.
+2026-07-30 15:15:11,759 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,759 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,759 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,759 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,759 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,759 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,759 - Parser Exception: aws.variables.tf
+org.apache.velocity.runtime.parser.ParseException: Encountered ")}\r\nvariable \"aws-secret-key\" {" at line 4, column 58.
+Was expecting one of:
+    "[" ...
+    "," ...
+    ")" ...
+    <WHITESPACE> ...
+    
+	at org.apache.velocity.runtime.parser.Parser.generateParseException(Parser.java:3679)
+	at org.apache.velocity.runtime.parser.Parser.jj_consume_token(Parser.java:3558)
+	at org.apache.velocity.runtime.parser.Parser.Method(Parser.java:1364)
+	at org.apache.velocity.runtime.parser.Parser.Reference(Parser.java:1496)
+	at org.apache.velocity.runtime.parser.Parser.Statement(Parser.java:357)
+	at org.apache.velocity.runtime.parser.Parser.process(Parser.java:317)
+	at org.apache.velocity.runtime.parser.Parser.parse(Parser.java:117)
+	at org.apache.velocity.runtime.RuntimeInstance.parse(RuntimeInstance.java:1226)
+	at org.apache.velocity.runtime.RuntimeInstance.parse(RuntimeInstance.java:1181)
+	at org.apache.velocity.Template.process(Template.java:134)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.loadResource(ResourceManagerImpl.java:437)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getResource(ResourceManagerImpl.java:352)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1533)
+	at org.apache.velocity.app.VelocityEngine.getTemplate(VelocityEngine.java:392)
+	at com.harbormaster.common.helpers.velocity.VelocityFileValidator.isValidVelocityTemplate(VelocityFileValidator.java:40)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFiles(GenerateApp.java:609)
+	at com.harbormaster.codetemplate.GenerateApp.generate(GenerateApp.java:365)
+	at com.harbormaster.server.action.generation.SystemGenerator.generate(SystemGenerator.java:44)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generateSystem(SystemGenerationAction.java:514)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generate(SystemGenerationAction.java:185)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.exec(SystemGenerationAction.java:151)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at ognl.OgnlRuntime.invokeMethod(OgnlRuntime.java:899)
+	at ognl.OgnlRuntime.callAppropriateMethod(OgnlRuntime.java:1544)
+	at ognl.ObjectMethodAccessor.callMethod(ObjectMethodAccessor.java:68)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethodWithDebugInfo(XWorkMethodAccessor.java:98)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethod(XWorkMethodAccessor.java:90)
+	at ognl.OgnlRuntime.callMethod(OgnlRuntime.java:1620)
+	at ognl.ASTMethod.getValueBody(ASTMethod.java:91)
+	at ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at ognl.Ognl.getValue(Ognl.java:470)
+	at ognl.Ognl.getValue(Ognl.java:434)
+	at com.opensymphony.xwork2.ognl.OgnlUtil$3.execute(OgnlUtil.java:492)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.compileAndExecuteMethod(OgnlUtil.java:544)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.callMethod(OgnlUtil.java:490)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:438)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:293)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:254)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.doIntercept(ConversionErrorInterceptor.java:142)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.json.JSONInterceptor.intercept(JSONInterceptor.java:185)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:140)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:89)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:250)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:160)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:121)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:175)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:167)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:228)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:196)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.factory.StrutsActionProxy.execute(StrutsActionProxy.java:48)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:574)
+	at org.apache.struts2.dispatcher.ExecuteOperations.executeAction(ExecuteOperations.java:79)
+	at org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:141)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:357)
+	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:176)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-30 15:15:11,761 - ResourceManager.getResource() parse exception
+org.apache.velocity.exception.ParseErrorException: Encountered ")}\r\nvariable \"aws-secret-key\" {" at aws.variables.tf[line 4, column 58]
+Was expecting one of:
+    "[" ...
+    "," ...
+    ")" ...
+    <WHITESPACE> ...
+    
+	at org.apache.velocity.Template.process(Template.java:151)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.loadResource(ResourceManagerImpl.java:437)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getResource(ResourceManagerImpl.java:352)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1533)
+	at org.apache.velocity.app.VelocityEngine.getTemplate(VelocityEngine.java:392)
+	at com.harbormaster.common.helpers.velocity.VelocityFileValidator.isValidVelocityTemplate(VelocityFileValidator.java:40)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFiles(GenerateApp.java:609)
+	at com.harbormaster.codetemplate.GenerateApp.generate(GenerateApp.java:365)
+	at com.harbormaster.server.action.generation.SystemGenerator.generate(SystemGenerator.java:44)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generateSystem(SystemGenerationAction.java:514)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generate(SystemGenerationAction.java:185)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.exec(SystemGenerationAction.java:151)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at ognl.OgnlRuntime.invokeMethod(OgnlRuntime.java:899)
+	at ognl.OgnlRuntime.callAppropriateMethod(OgnlRuntime.java:1544)
+	at ognl.ObjectMethodAccessor.callMethod(ObjectMethodAccessor.java:68)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethodWithDebugInfo(XWorkMethodAccessor.java:98)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethod(XWorkMethodAccessor.java:90)
+	at ognl.OgnlRuntime.callMethod(OgnlRuntime.java:1620)
+	at ognl.ASTMethod.getValueBody(ASTMethod.java:91)
+	at ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at ognl.Ognl.getValue(Ognl.java:470)
+	at ognl.Ognl.getValue(Ognl.java:434)
+	at com.opensymphony.xwork2.ognl.OgnlUtil$3.execute(OgnlUtil.java:492)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.compileAndExecuteMethod(OgnlUtil.java:544)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.callMethod(OgnlUtil.java:490)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:438)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:293)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:254)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.doIntercept(ConversionErrorInterceptor.java:142)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.json.JSONInterceptor.intercept(JSONInterceptor.java:185)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:140)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:89)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:250)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:160)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:121)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:175)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:167)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:228)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:196)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.factory.StrutsActionProxy.execute(StrutsActionProxy.java:48)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:574)
+	at org.apache.struts2.dispatcher.ExecuteOperations.executeAction(ExecuteOperations.java:79)
+	at org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:141)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:357)
+	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:176)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-30 15:15:11,762 - Parser Exception: hashicorp\kubernetes\eks\aws.variables.tf
+org.apache.velocity.runtime.parser.ParseException: Encountered ")}\r\nvariable \"aws-secret-key\" {" at line 4, column 58.
+Was expecting one of:
+    "[" ...
+    "," ...
+    ")" ...
+    <WHITESPACE> ...
+    
+	at org.apache.velocity.runtime.parser.Parser.generateParseException(Parser.java:3679)
+	at org.apache.velocity.runtime.parser.Parser.jj_consume_token(Parser.java:3558)
+	at org.apache.velocity.runtime.parser.Parser.Method(Parser.java:1364)
+	at org.apache.velocity.runtime.parser.Parser.Reference(Parser.java:1496)
+	at org.apache.velocity.runtime.parser.Parser.Statement(Parser.java:357)
+	at org.apache.velocity.runtime.parser.Parser.process(Parser.java:317)
+	at org.apache.velocity.runtime.parser.Parser.parse(Parser.java:117)
+	at org.apache.velocity.runtime.RuntimeInstance.parse(RuntimeInstance.java:1226)
+	at org.apache.velocity.runtime.RuntimeInstance.parse(RuntimeInstance.java:1181)
+	at org.apache.velocity.Template.process(Template.java:134)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.loadResource(ResourceManagerImpl.java:437)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getResource(ResourceManagerImpl.java:352)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1533)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1514)
+	at org.apache.velocity.app.VelocityEngine.getTemplate(VelocityEngine.java:373)
+	at com.harbormaster.codetemplate.GenerateApp.mergeTemplate(GenerateApp.java:928)
+	at com.harbormaster.codetemplate.GenerateApp.handleLooseFileGen(GenerateApp.java:870)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFilesHelper(GenerateApp.java:710)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFiles(GenerateApp.java:644)
+	at com.harbormaster.codetemplate.GenerateApp.generate(GenerateApp.java:365)
+	at com.harbormaster.server.action.generation.SystemGenerator.generate(SystemGenerator.java:44)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generateSystem(SystemGenerationAction.java:514)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generate(SystemGenerationAction.java:185)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.exec(SystemGenerationAction.java:151)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at ognl.OgnlRuntime.invokeMethod(OgnlRuntime.java:899)
+	at ognl.OgnlRuntime.callAppropriateMethod(OgnlRuntime.java:1544)
+	at ognl.ObjectMethodAccessor.callMethod(ObjectMethodAccessor.java:68)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethodWithDebugInfo(XWorkMethodAccessor.java:98)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethod(XWorkMethodAccessor.java:90)
+	at ognl.OgnlRuntime.callMethod(OgnlRuntime.java:1620)
+	at ognl.ASTMethod.getValueBody(ASTMethod.java:91)
+	at ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at ognl.Ognl.getValue(Ognl.java:470)
+	at ognl.Ognl.getValue(Ognl.java:434)
+	at com.opensymphony.xwork2.ognl.OgnlUtil$3.execute(OgnlUtil.java:492)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.compileAndExecuteMethod(OgnlUtil.java:544)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.callMethod(OgnlUtil.java:490)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:438)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:293)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:254)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.doIntercept(ConversionErrorInterceptor.java:142)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.json.JSONInterceptor.intercept(JSONInterceptor.java:185)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:140)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:89)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:250)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:160)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:121)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:175)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:167)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:228)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:196)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.factory.StrutsActionProxy.execute(StrutsActionProxy.java:48)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:574)
+	at org.apache.struts2.dispatcher.ExecuteOperations.executeAction(ExecuteOperations.java:79)
+	at org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:141)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:357)
+	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:176)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-30 15:15:11,766 - ResourceManager.getResource() parse exception
+org.apache.velocity.exception.ParseErrorException: Encountered ")}\r\nvariable \"aws-secret-key\" {" at hashicorp\kubernetes\eks\aws.variables.tf[line 4, column 58]
+Was expecting one of:
+    "[" ...
+    "," ...
+    ")" ...
+    <WHITESPACE> ...
+    
+	at org.apache.velocity.Template.process(Template.java:151)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.loadResource(ResourceManagerImpl.java:437)
+	at org.apache.velocity.runtime.resource.ResourceManagerImpl.getResource(ResourceManagerImpl.java:352)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1533)
+	at org.apache.velocity.runtime.RuntimeInstance.getTemplate(RuntimeInstance.java:1514)
+	at org.apache.velocity.app.VelocityEngine.getTemplate(VelocityEngine.java:373)
+	at com.harbormaster.codetemplate.GenerateApp.mergeTemplate(GenerateApp.java:928)
+	at com.harbormaster.codetemplate.GenerateApp.handleLooseFileGen(GenerateApp.java:870)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFilesHelper(GenerateApp.java:710)
+	at com.harbormaster.codetemplate.GenerateApp.generateTheFiles(GenerateApp.java:644)
+	at com.harbormaster.codetemplate.GenerateApp.generate(GenerateApp.java:365)
+	at com.harbormaster.server.action.generation.SystemGenerator.generate(SystemGenerator.java:44)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generateSystem(SystemGenerationAction.java:514)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.generate(SystemGenerationAction.java:185)
+	at com.harbormaster.server.action.generation.SystemGenerationAction.exec(SystemGenerationAction.java:151)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at ognl.OgnlRuntime.invokeMethod(OgnlRuntime.java:899)
+	at ognl.OgnlRuntime.callAppropriateMethod(OgnlRuntime.java:1544)
+	at ognl.ObjectMethodAccessor.callMethod(ObjectMethodAccessor.java:68)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethodWithDebugInfo(XWorkMethodAccessor.java:98)
+	at com.opensymphony.xwork2.ognl.accessor.XWorkMethodAccessor.callMethod(XWorkMethodAccessor.java:90)
+	at ognl.OgnlRuntime.callMethod(OgnlRuntime.java:1620)
+	at ognl.ASTMethod.getValueBody(ASTMethod.java:91)
+	at ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at ognl.Ognl.getValue(Ognl.java:470)
+	at ognl.Ognl.getValue(Ognl.java:434)
+	at com.opensymphony.xwork2.ognl.OgnlUtil$3.execute(OgnlUtil.java:492)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.compileAndExecuteMethod(OgnlUtil.java:544)
+	at com.opensymphony.xwork2.ognl.OgnlUtil.callMethod(OgnlUtil.java:490)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeAction(DefaultActionInvocation.java:438)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invokeActionOnly(DefaultActionInvocation.java:293)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:254)
+	at com.opensymphony.xwork2.interceptor.ConversionErrorInterceptor.doIntercept(ConversionErrorInterceptor.java:142)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.json.JSONInterceptor.intercept(JSONInterceptor.java:185)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ParametersInterceptor.doIntercept(ParametersInterceptor.java:140)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.CheckboxInterceptor.intercept(CheckboxInterceptor.java:89)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.debugging.DebuggingInterceptor.intercept(DebuggingInterceptor.java:250)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ChainingInterceptor.intercept(ChainingInterceptor.java:160)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.I18nInterceptor.intercept(I18nInterceptor.java:121)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.PrepareInterceptor.doIntercept(PrepareInterceptor.java:175)
+	at com.opensymphony.xwork2.interceptor.MethodFilterInterceptor.intercept(MethodFilterInterceptor.java:99)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.interceptor.ServletConfigInterceptor.intercept(ServletConfigInterceptor.java:167)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.AliasInterceptor.intercept(AliasInterceptor.java:228)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:196)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:249)
+	at org.apache.struts2.factory.StrutsActionProxy.execute(StrutsActionProxy.java:48)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:574)
+	at org.apache.struts2.dispatcher.ExecuteOperations.executeAction(ExecuteOperations.java:79)
+	at org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:141)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:357)
+	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:176)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-30 15:15:11,775 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,776 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,776 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,776 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,776 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,776 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,776 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,776 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,777 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,777 - Do unicode file recognition:  false
+2026-07-30 15:15:11,777 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.aws\hashicorp\kubernetes\eks'
+2026-07-30 15:15:11,777 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,777 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,778 - Created '20' parsers.
+2026-07-30 15:15:11,778 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,779 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,779 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,779 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,779 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,779 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,779 - ResourceManager : found k8.aws.main.tf with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,781 - ResourceManager : found hashicorp\kubernetes\eks\k8.aws.main.tf with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,785 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,785 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,785 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,785 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,785 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,785 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,785 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,785 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,785 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,785 - Do unicode file recognition:  false
+2026-07-30 15:15:11,785 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.aws'
+2026-07-30 15:15:11,785 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,785 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,786 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,786 - Created '20' parsers.
+2026-07-30 15:15:11,786 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,786 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,786 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,786 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,786 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,786 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,787 - ResourceManager : found options-unused.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,788 - ResourceManager : found options-unused.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,797 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,797 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,797 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,797 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,797 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,797 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,797 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,798 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,798 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,798 - Do unicode file recognition:  false
+2026-07-30 15:15:11,798 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang'
+2026-07-30 15:15:11,798 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,798 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,798 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,798 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,799 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,799 - Created '20' parsers.
+2026-07-30 15:15:11,799 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,799 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,799 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,799 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,799 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,799 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,800 - ResourceManager : found blueprint.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,801 - ResourceManager : found blueprint.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,805 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,806 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,806 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,806 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,807 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,807 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,807 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,807 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,807 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,807 - Do unicode file recognition:  false
+2026-07-30 15:15:11,808 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\docker'
+2026-07-30 15:15:11,808 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,808 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,808 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,808 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,808 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,809 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,809 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,809 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,809 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,809 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,811 - Created '20' parsers.
+2026-07-30 15:15:11,811 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,811 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,811 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,811 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,812 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,813 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,813 - ResourceManager : found Dockerfile with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,815 - ResourceManager : found docker\Dockerfile with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,817 - Null reference [template 'common\macros\header-footer-macros.vm', line 85, column 40] : ${certificationIdentifier} cannot be resolved.
+2026-07-30 15:15:11,823 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,823 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,823 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,823 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,823 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,823 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,823 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,823 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,825 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,825 - Do unicode file recognition:  false
+2026-07-30 15:15:11,825 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal\controller'
+2026-07-30 15:15:11,825 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,825 - Created '20' parsers.
+2026-07-30 15:15:11,825 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,825 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,825 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,825 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,825 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,825 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,825 - ResourceManager : found PulseIndicatorController__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,832 - ResourceManager : found internal\controller\PulseIndicatorController__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,837 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,837 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,838 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,838 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,838 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,838 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,838 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,838 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,838 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,838 - Do unicode file recognition:  false
+2026-07-30 15:15:11,838 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal\json'
+2026-07-30 15:15:11,838 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,840 - Created '20' parsers.
+2026-07-30 15:15:11,840 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,840 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,840 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,840 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,840 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,840 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,841 - ResourceManager : found json.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,842 - ResourceManager : found internal\json\json.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,850 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,850 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,850 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,850 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,850 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,850 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,850 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,850 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,850 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,851 - Do unicode file recognition:  false
+2026-07-30 15:15:11,851 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal\json'
+2026-07-30 15:15:11,851 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,851 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,852 - Created '20' parsers.
+2026-07-30 15:15:11,852 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,852 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,852 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,852 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,853 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,853 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,853 - ResourceManager : found jsonResponseFormatter.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,854 - ResourceManager : found internal\json\jsonResponseFormatter.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,858 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,859 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,859 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,859 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,859 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,861 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,861 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,861 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,861 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,861 - Do unicode file recognition:  false
+2026-07-30 15:15:11,861 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal'
+2026-07-30 15:15:11,862 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,862 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,863 - Created '20' parsers.
+2026-07-30 15:15:11,863 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,864 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,864 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,864 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,864 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,864 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,864 - ResourceManager : found main.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,865 - ResourceManager : found internal\main.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,869 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,869 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,869 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,870 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,870 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,870 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,870 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,870 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,870 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,870 - Do unicode file recognition:  false
+2026-07-30 15:15:11,870 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal\model'
+2026-07-30 15:15:11,870 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,870 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,870 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,870 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,870 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,870 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,871 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,871 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,871 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,871 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,871 - Created '20' parsers.
+2026-07-30 15:15:11,871 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,871 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,871 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,871 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,871 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,871 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,872 - ResourceManager : found enums.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,873 - ResourceManager : found internal\model\enums.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,882 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:11,882 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:11,884 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:11,884 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:11,884 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:11,884 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:11,884 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,884 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:11,884 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,884 - Do unicode file recognition:  false
+2026-07-30 15:15:11,884 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang\internal\model'
+2026-07-30 15:15:11,884 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:11,885 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:11,886 - Created '20' parsers.
+2026-07-30 15:15:11,886 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:11,886 - Velocimacro : Default library not found.
+2026-07-30 15:15:11,886 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:11,886 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:11,886 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:11,886 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:11,887 - ResourceManager : found __classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,888 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,893 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,899 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,902 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,905 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,911 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,915 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,918 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,921 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,924 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,928 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,934 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,938 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,944 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,951 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,958 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,965 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,972 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,977 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,981 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,986 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,989 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:11,995 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,000 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,014 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,020 - ResourceManager : found internal\model\__classes__.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,030 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,030 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,030 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,030 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,030 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,030 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,030 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,030 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,033 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,033 - Do unicode file recognition:  false
+2026-07-30 15:15:12,033 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\foundational\.golang'
+2026-07-30 15:15:12,033 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,033 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,034 - Created '20' parsers.
+2026-07-30 15:15:12,034 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,034 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,034 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,034 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,034 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,034 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,036 - ResourceManager : found options.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,038 - ResourceManager : found options.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,148 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,148 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,148 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,148 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,148 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,148 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,148 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,148 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,148 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,148 - Do unicode file recognition:  false
+2026-07-30 15:15:12,148 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\vendor\Golang'
+2026-07-30 15:15:12,148 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,148 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,148 - Created '20' parsers.
+2026-07-30 15:15:12,148 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,148 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,148 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,148 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,148 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,148 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,148 - ResourceManager : found blueprint.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,148 - ResourceManager : found blueprint.json with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,165 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,167 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,167 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,167 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,167 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,167 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,167 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,167 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,167 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,167 - Do unicode file recognition:  false
+2026-07-30 15:15:12,167 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\vendor\Golang'
+2026-07-30 15:15:12,167 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,167 - Created '20' parsers.
+2026-07-30 15:15:12,167 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,167 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,167 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,167 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,167 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,167 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,167 - ResourceManager : found mappings.properties with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,167 - ResourceManager : found mappings.properties with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,167 - Right side ($null) of '==' operation has null value. If it is a reference, it may not be in the context or its toString() returned null. build\cicd\ci-cd-macros.vm[line 13, column 15]
+2026-07-30 15:15:12,179 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,179 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,179 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,179 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,179 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,179 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,179 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,179 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,179 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,179 - Do unicode file recognition:  false
+2026-07-30 15:15:12,179 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\vendor\Golang\src'
+2026-07-30 15:15:12,179 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,179 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,179 - Created '20' parsers.
+2026-07-30 15:15:12,179 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,179 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,179 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,179 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,179 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,179 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,186 - ResourceManager : found .env with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,186 - ResourceManager : found src\.env with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,192 - ResourceManager : found src\.env with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,198 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,198 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,198 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,198 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,198 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,198 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,198 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,198 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,198 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,198 - Do unicode file recognition:  false
+2026-07-30 15:15:12,198 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\vendor\Golang\src\controller'
+2026-07-30 15:15:12,198 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,198 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,200 - Created '20' parsers.
+2026-07-30 15:15:12,200 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,200 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,200 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,200 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,200 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,200 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,200 - ResourceManager : found __classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,200 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,208 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,217 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,221 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,227 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,232 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,236 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,241 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,245 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,256 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,262 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,266 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,274 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,280 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,287 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,294 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,302 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,310 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,310 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,320 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,327 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,331 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,338 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,347 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,354 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,361 - ResourceManager : found src\controller\__classes__Controller.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,368 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,369 - Initializing Velocity, Calling init()...
+2026-07-30 15:15:12,369 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2026-07-30 15:15:12,369 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2026-07-30 15:15:12,369 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2026-07-30 15:15:12,369 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2026-07-30 15:15:12,370 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,370 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2026-07-30 15:15:12,370 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,370 - Do unicode file recognition:  false
+2026-07-30 15:15:12,370 - FileResourceLoader : adding path 'C:\harbormaster\tools\apache-tomcat-9.0.63\temp\harbormaster_working_dir\blueprints\07-30-2026-09-13-57\vendor\Golang\src\dao'
+2026-07-30 15:15:12,370 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2026-07-30 15:15:12,370 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2026-07-30 15:15:12,371 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2026-07-30 15:15:12,376 - Created '20' parsers.
+2026-07-30 15:15:12,376 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2026-07-30 15:15:12,377 - Velocimacro : Default library not found.
+2026-07-30 15:15:12,377 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2026-07-30 15:15:12,377 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2026-07-30 15:15:12,377 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2026-07-30 15:15:12,377 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2026-07-30 15:15:12,377 - ResourceManager : found __classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,382 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,396 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,398 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,413 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,423 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,431 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,438 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,443 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,445 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,461 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,462 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,477 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,484 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,492 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,498 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,506 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,510 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,523 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,528 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,528 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,551 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,560 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,566 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,570 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,575 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,579 - ResourceManager : found src\dao\__classes__DAO.go with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2026-07-30 15:15:12,589 - Log4JLogChute initialized using file 'velocity.log'
+2026-07-30 15:15:12,589 - Initializing Velocity, Calling init()...

@@ -1,13 +1,13 @@
 {
-  "name": "@system-as-code/sdk",
+  "name": "@system-as-code/cli",
   "version": "1.0.0",
-  "description": "Generate entire software systems, from code to deployment, choosing from a rich set of technology blueprints and industry domain models..",
+  "description": "[System-as-Code : <hm generate system-as-code.yml> ] - From a single YAML file generate entire software systems, from code to deployment, choosing from a rich set of certified technology blueprints and verified industry domain models.  ",
   "main": "hm.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test"
   },
   "keywords": [
     "code",
@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^16.43.2",
+    "@system-as-code/sdk": "^1.0.1",
     "boilerplate-readme-template": "^1.0.1",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
@@ -34,7 +35,6 @@
     "config": "^3.3.6",
     "configstore": "^4.0.0",
     "figlet": "^1.5.2",
-    "@harbormaster/sdk": "^1.0.0",
     "inquirer": "^6.5.2",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.21",
@@ -54,6 +54,5 @@
   "bugs": {
     "url": "https://github.com/Harbormaster-AI/cli/issues"
   },
-  "homepage": "https://github.com/Harbormaster-AI/cli#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/Harbormaster-AI/cli#readme"
 }

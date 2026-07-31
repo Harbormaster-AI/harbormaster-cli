@@ -12,10 +12,10 @@
 # -------------------------------------------------------------
 
 system:
-    name: Core Banking System - v1.90
+    name: Core Banking System - v1.00
     description: Core banking system on Spring Boot 3.5 using MySQL 8
     blueprint:
-        name:             Django
+        name:             Spring Boot 3.5
           # To see the list of available blueprint on a Harbormaster instance use command:
         #     harbormaster blueprint list --output pretty
 
@@ -26,53 +26,55 @@ system:
 
 
     # ------------------------------------------------------------
+    # Git repository parameters
+    # - password is a Git token.  This data is never stored
+    # - anonymous users provide a Git token.
+    # - logged in User's from a Harbormaster Server instance
+    # do need to provide this
+    # ------------------------------------------------------------
+
+    git:
+        inUse:          true
+        name:           git_test_spring_boot_35        # arbitrary name
+        host:           # git host name - defaults to github.cmo
+        owner:          # owner name
+        repository:     # repo name
+        password:        # replace with a GitHub token with the right level of access
+
+
+    # ------------------------------------------------------------
     # Docker parameters
     # ------------------------------------------------------------
 
     docker:
         inUse:        true
-        name:         docker_test_spring-boot   # arbitrary name
-        username:     tylertravismya
-        password:     69cutlass
-        orgName:      theharbormaster
-        repository:   banking-on-spring-boot-3-5
+        name:         docker_test_spring_boot_35   # arbitrary name
+        username:     # username for docker
+        password:     # password for docker - HM never stores it
+        orgName:      docker.io
+        repository:
         tag:          latest
-        host:         #empty uses docker hub default
-
-    # ------------------------------------------------------------
-    # Git repository parameters
-    # - password is a Git token.  This data is never stored
-    # ------------------------------------------------------------
-
-    git:
-        inUse:          true
-        name:           git_test_spring-boot        # arbitrary name
-        host:           https://github.com
-        owner:          Harbormaster-AI
-        repository:     demo
-        password:        # replace with a GutHub token with the right level of access
-
-
+        host:         # empty uses docker.io
 
     # ------------------------------------------------------------
     # Terraform properties
     # ------------------------------------------------------------
     terraform:
         inUse:             true
-        dbUsername:
-        dbPassword:
+        dbUsername:         # leave blank, terraform will handle credential exchange to the remote resources
+        dbPassword:         # leave blank, terraform will handle credential exchange to the remote resources
         dbEngine:          mysql   # options - mysql, mongo, postgres
         dbVersion:         # leave blank to apply vendor default
-        dbPort:            3306
+        dbPort:            3306     # if blank, HM will assign the dbEngine vendor default
         provider:           aws
 
     # ------------------------------------------------------------
     # AWS properties
     # ------------------------------------------------------------
     aws:
-        accessKey:
-        secretKey:
-        vpc:
+        accessKey:          # see AWS IAM
+        secretKey:          # see AWS IAM
+        vpc:                # leave blank, terraform will assign
         region:             us-east-2
         ec2InstanceType:    t2.medium
         dbInstanceType:     db.t3.medium
@@ -84,9 +86,9 @@ system:
 
     kubernetes:
         inUse:             true
-        host:
+        host:               # leave blank and terraform will assign
         hostTarget:        aws
-        serviceType:       LoadBalancer
+        serviceType:       LoadBalancer # best option to start
 
     # ------------------------------------------------------------
     # System options influence the generative output and possible
@@ -109,6 +111,13 @@ system:
             version:               0.0.1
 
         # ------------------------------------------------------------
+        # CI/CD parameters
+        # ------------------------------------------------------------
+
+        cicd:
+            platform: circleci      # options - codeship, circleci, jfrog.pipelines, jenkins, azure, aws, gitlab, bitbucket, github
+
+        # ------------------------------------------------------------
         # Spring Boot properties
         # ------------------------------------------------------------
 
@@ -120,8 +129,3 @@ system:
             database-password:
             spring-profiles-active:
 
-        # ------------------------------------------------------------
-        # CI/CD parameters
-        # ------------------------------------------------------------
-        cicd:
-            platform: github      # options - codeship, circleci, jfrog.pipelines, jenkins, azure, aws, gitlab, bitbucket, github
