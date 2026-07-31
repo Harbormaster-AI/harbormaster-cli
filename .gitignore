@@ -3,14 +3,9 @@ node_modules/
 dirs
 .project
 *.bat
+*.yml
+*.yaml
 *.zip/
-sample/techstacks/
-samples/yamls/backup/*.yml
-samples/codesandbox/
-samples/account.json
-samples/Dockerfile
-samples/entrypoint.sh
-samples/main.tf
-
+velocity*
 
 
