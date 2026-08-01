@@ -1,6 +1,6 @@
 {
   "name": "@system-as-code/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "[System-as-Code : <hm generate system-as-code.yml> ] - From a single YAML file generate entire software systems, from code to deployment, choosing from a rich set of certified technology blueprints and verified industry domain models.  ",
   "main": "hm.js",
   "directories": {
