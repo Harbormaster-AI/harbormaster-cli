@@ -136,4 +136,25 @@ certification [options] <id>    `Checks the status of a system certification.`
 delete [options] <id>           `Delete a previously created system. For authenticated users only.`
 
 
+---
 
+## Usage: hm system generate [options] <yaml_file>  
+
+
+Generates a system using the directives of a System-as-Code YAML file.  Available inputs will override yaml file settings.
+
+**Options**:  
+
+--application_name <name>                `Name to use for the generated system.`  
+
+--application_description <description>  `Description to use for the generated system.`  
+
+--blueprint_name <name>                  `Blueprint to use during system generation.`  
+
+--model_name <name>                      `Domain model to use during system generation.`   
+--git_repository <repository>            `Git repository to commit all system files to.`  
+--git_token <token>                      `Git token to use for commit.`  
+--docker_repository <repository>         `Docker repository to push the built image to.`  
+--docker_password <password>             `Password to access designated Docker host.`  
+--quiet                                  `Suppress output.`  
+-h, --help                               `Display help for command.`  

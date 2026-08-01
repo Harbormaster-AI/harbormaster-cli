@@ -4,6 +4,7 @@ const chalk     		= require('chalk');
 const clear   			= require('clear');
 const figlet   			= require('figlet');
 const harbormaster      = require('@system-as-code/sdk');
+
 const inquirer			= require('../lib/inquire');
 var constants 			= require("../lib/constants");
 var output 			    = require("../lib/output");
@@ -157,10 +158,14 @@ program
 .command('logon [token] [hostUrl]')
 .description('Login if you have a token as a user of a Harbormaster instance.  Logging in is not necessary to use Harbormaster.' )
 .action(async function(token, hostUrl){
-	//console.log( chalk.white(
-	//	    figlet.textSync('Harbormaster', { horizontalLayout: 'default', verticalLayout: "default" })
-	//	)
-	//);
+	console.log( chalk.white(
+		    figlet.textSync('System as Code',
+                        {   font: 'Slant',
+                                    horizontalLayout: 'default',
+                                    verticalLayout: "default"
+                                })
+		)
+	);
 
 	var theToken;
 	if ( token != null ) {
@@ -649,6 +654,14 @@ system
 system
 .command('generate <yaml_file>')
 .description('Generates a system using the directives of a System-as-Code YAML file.')
+.option( '--application_name <name>', 'Name to use for the generated system.')
+.option( '--application_description <description>', 'Description to use for the generated system.')
+.option( '--blueprint_name <name>', 'Blueprint to use during system generation.')
+.option( '--model_name <name>', 'Domain model to use during system generation.')
+.option( '--git_repository <repository>', 'Git repository to commit all system files to.')
+.option( '--git_token <token>', 'Git token to use for commit.')
+.option( '--docker_repository <repository>', 'Docker repository to push the built image to.')
+.option( '--docker_password <password>', 'Password to access designated Docker host.')
 .option('--quiet', 'Suppress output.')
 //.option('-x, --extended [value]', 'Show extended generation results.  Helpful for debugging. true/false default:false')
 //.option('-g, --gitFile [value]', 'Git settings in YAML file, overrides appOptionsFile setting in the generation YAML file')
@@ -665,7 +678,20 @@ system
     console.clear();
 
     new Promise(function(resolve, reject) {
-        harbormaster.generateSystem(yaml_file)
+
+        const inputOptions=
+            {
+                application_name :          command._optionValues.application_name,
+                application_description :   command._optionValues.application_description,
+                blueprint_name :            command._optionValues.blueprint_name,
+                model_name  :               command._optionValues.model_name,
+                git_repository :            command._optionValues.git_repository,
+                git_token :                 command._optionValues.git_token,
+                docker_repository :         command._optionValues.docker_repository,
+                docker_password :           command._optionValues.docker_password,
+            }
+
+        harbormaster.generateSystem(yaml_file, inputOptions)
             .then(function(data){
 
             const quiet     = determineValue( command._optionValues.quiet, 'quiet', false );

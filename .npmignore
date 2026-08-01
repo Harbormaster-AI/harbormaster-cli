@@ -1,3 +1,2 @@
-.tmp.drivedownload
-./lib/generatehandler2.js
-./samples/github/demo.github.params.yml
+velocity*
+test-then-publish.bat
