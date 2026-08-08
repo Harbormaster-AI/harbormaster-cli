@@ -102,12 +102,12 @@ system:
         # ------------------------------------------------------------
 
         application:
-            name:                  banking-event-sourced
-            description:           Banking Restful backend
+            name:                  banking-backend
+            description:           Banking Restful Backend
             author:                Harbormaster Dev Team
             email:                 xxxx.xxxxxxxxx@xxxxxxxx.com
-            application logo URL:  ./img/turnstone.biologics.png
-            company name:          Turnstone Biologics
+            application logo URL:  ./img/turnstone.bank.png
+            company name:          Turnstone National Bank
             version:               0.0.1
 
         # ------------------------------------------------------------
@@ -122,7 +122,7 @@ system:
         # ------------------------------------------------------------
 
         spring:
-            server-port:             8011
+            server-port:             8080
             entity-store-type:       mysql                         # options - h2, mysql, postgres, mongodb
             entity-store-url:        jdbc:mysql://localhost:3306/banking-on-spring-boot
             database-username:       root

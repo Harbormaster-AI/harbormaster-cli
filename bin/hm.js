@@ -97,7 +97,7 @@ config
         console.log( "_____________________________________________");
         console.log( "Global configuration settings")
         console.log();console.log();
-        output.outputField( "platform url", conf.get("endpoint") );
+        output.outputField( "platform_url", conf.get("endpoint") );
         output.outputField( "output", conf.get("output") );
         output.outputField( "quiet", conf.get("quiet") );
 
